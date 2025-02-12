@@ -4,14 +4,14 @@ import { storeData, getData } from "@/components/data";
 
 
 export default function Index() {
-  const [host, setHost] = useState<string>("");
-  if ()
+  const [host, sethost] = useState<string>("");
+  if (host) {}
   return (
     <View style={s.mainview}>
       <Text>Hi</Text>
               
       <View style={s.inputBox}>
-          <TextInput style={s.label} placeholder="Host" placeholderTextColor="black" value={pwd} onChangeText={setpwd} secureTextEntry={true}></TextInput>
+          <TextInput style={s.label} placeholder="Host" placeholderTextColor="black" value={host} onChangeText={sethost} secureTextEntry={true}></TextInput>
         </View>
     </View>
    );
