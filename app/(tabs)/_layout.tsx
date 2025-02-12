@@ -31,7 +31,7 @@ export default function RootLayout() {
                 ),
             }}/>
             <Tabs.Screen 
-            name="demo"
+            name="status"
             options={{
                 title: "Demo Page",
                 tabBarIcon:({color, focused }) => (
