@@ -11,34 +11,36 @@ export default function status() {
   const [errorb, seterrorb] = useState<boolean>(false);
   const [loading, setloading] = useState<boolean>(false);
   useEffect(() => {
-    sethost("https://yhw.tw");
-    seterror("");
-    seterrorb(true);
-    setchk(null);
-    try {
-      const getdata = async () => {
-        setloading(true);
+    const getdata = async (host: string) => {
+      // Since you are fucking reading the data before even writing it,  這是留心酸的??? What the actual fuck?
+      sethost("https://yhw.tw");
+      seterror("");
+      seterrorb(true);
+      setloading(true);
+      getdata(host);
+      try {
         const res = await checkStatus(host);
         if (res.error || res.version === "v0") {
           seterrorb(true);
+          setchk(null);
           console.log(res.error);
           seterror(res.error);
+          return;
         } else {
           await setchk(res);
           console.log(res);
+          return;
         }
-      };
-      getdata();
-    } catch (e) {
-      seterrorb(true);
-      seterror(e.message);
-    } finally {
-      setloading(false);
-    }
+      } catch (e) {
+        seterrorb(true);
+        seterror(e.message);
+      } finally {
+        setloading(false);
+      }
+    };
   }, []);
   return (
     <View style={s.main}>
-      \{" "}
       <Text style={s.hostname}>
         {host.replace("https://", "").replace("http://", "")}
       </Text>
