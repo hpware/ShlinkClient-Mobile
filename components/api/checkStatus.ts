@@ -1,12 +1,13 @@
 interface hcres {
     status: string;
-    verison: string;
+    version: string;
 }
 
 interface returnres {
     passed: boolean,
     error: any,
-    verison: string | null, 
+    // DONT SPELL THE VERSION WRONG!!!
+    version: any, 
 }
 
 export default async function checkStatus(host: string): Promise<returnres> {
@@ -22,18 +23,17 @@ export default async function checkStatus(host: string): Promise<returnres> {
     const res = await req.json() as hcres;
     console.log(res);
     if (res.status = "pass") {
-        console.log(res.verison)
         return {
             passed: true,
             error: null,
-            verison: res.verison,
+            version: res.version,
         }
     } else {
         console.log("else")
         return {
             passed: false,
-            error: null,
-            verison: null,
+            error: "Not Passed",
+            version: null,
         }
     }
 } catch (e) {
@@ -41,7 +41,14 @@ export default async function checkStatus(host: string): Promise<returnres> {
     return {
         passed: false,
         error: e,
-        verison: null,
+        version: null,
     }
 }
+}
+
+export interface resdata {
+    passed: boolean,
+    error: any,
+    // DONT SPELL THE VERSION WRONG!!!
+    version: any, 
 }
