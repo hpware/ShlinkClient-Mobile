@@ -25,7 +25,7 @@ export default async function checkStatus(host: string): Promise<returnres> {
     if (res.status = "pass") {
         return {
             passed: true,
-            error: null,
+            error: false,
             version: res.version,
         }
     } else {
@@ -33,15 +33,15 @@ export default async function checkStatus(host: string): Promise<returnres> {
         return {
             passed: false,
             error: "Not Passed",
-            version: null,
+            version: "v0"
         }
     }
 } catch (e) {
     console.log(e);
     return {
         passed: false,
-        error: e,
-        version: null,
+        error: `${e.message}`,
+        version: "v0",
     }
 }
 }
