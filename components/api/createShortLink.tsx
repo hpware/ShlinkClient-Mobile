@@ -1,4 +1,3 @@
 import { useEffect } from "react";
 
-export async function createShortLink(LongUrl: string, ) {
-}
+export async function createShortLink(LongUrl: string) {}
