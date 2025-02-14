@@ -19,26 +19,13 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="login"
+        name="status"
         options={{
-          title: "首頁",
+          title: "Status",
 
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? "home-sharp" : "home-outline"}
-              color={color}
-              size={24}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="status"
-        options={{
-          title: "Demo Page",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name={focused ? "home-sharp" : "home-outline"}
+              name={focused ? "checkmark-circle-sharp" : "checkmark-circle-outline"}
               color={color}
               size={24}
             />

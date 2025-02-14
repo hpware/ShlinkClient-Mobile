@@ -4,6 +4,7 @@ import checkStatus from "@/components/api/checkStatus";
 import createShortLink from "@/components/api/createShortLink";
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { storeData, getData } from "@/components/data";
 
 export default function status() {
   const [chk, setchk] = useState<any>();
@@ -14,18 +15,17 @@ export default function status() {
   const [loading, setloading] = useState<boolean>(false);
   
 
-  // Do you really need TWO useEffects ???
+  // Do you really need TWO useEffects ??? (I used three.)
   useEffect(() => {
     sethost("https://yhw.tw");
     seterror("");
     seterrorb(true);
     setloading(true);
     // yes
-  })
+  }, [])
 
   useEffect(() => {
     const getdata = async (host: string) => {
-      // Since you are fucking reading the data before even writing it,  這是留心酸的??? What the actual fuck?
       try {
         const res = await checkStatus(host);
         if (res.error || res.version === "v0") {
@@ -38,6 +38,7 @@ export default function status() {
         } else {
           await setchk(res);
           console.log(res);
+          storeData("version", chk.version)
         }
       } catch (e) {
         seterrorb(true);
@@ -47,7 +48,7 @@ export default function status() {
         console.log("truck")
       }
     };
-    // I put this in the function.
+    // I put this in the function. huge bruh moment.
     getdata(host);
   }, []);
   
@@ -60,8 +61,8 @@ export default function status() {
       } catch (e) {
 
       }
-    } 
-  })
+    }
+  }, [])
   return (
     <View style={s.main}>
       <Text style={s.hostname}>
