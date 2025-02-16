@@ -11,7 +11,7 @@ export async function storeData(key: string, value: string) {
 export async function storeNumbers(key: string, value: number) {
   try {
     await AsyncStorage.setItem(key, String(value));
-  } catch(e) {
+  } catch (e) {
     console.error(e);
   }
 }

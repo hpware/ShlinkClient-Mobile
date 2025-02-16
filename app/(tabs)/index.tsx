@@ -7,26 +7,25 @@ export default function Index() {
   if (host) {
   }
   return (
-    <View style={s.mainview}>{
-      !host ? (
+    <View style={s.mainview}>
+      {!host ? (
         <Text>Please add a host to start using this app.</Text>
       ) : (
         <View>
-                <Text>Hi</Text>
+          <Text>Hi</Text>
 
-<View style={s.inputBox}>
-  <TextInput
-    style={s.label}
-    placeholder="Host"
-    placeholderTextColor="black"
-    value={host}
-    onChangeText={sethost}
-    secureTextEntry={true}
-  ></TextInput>
-</View>
+          <View style={s.inputBox}>
+            <TextInput
+              style={s.label}
+              placeholder="Host"
+              placeholderTextColor="black"
+              value={host}
+              onChangeText={sethost}
+              secureTextEntry={true}
+            ></TextInput>
           </View>
-      )
-    }
+        </View>
+      )}
     </View>
   );
 }
@@ -36,9 +35,9 @@ const s = StyleSheet.create({
     textAlign: "center",
     alignContent: "center",
     justifyContent: "center",
-    flex:1,
+    flex: 1,
     alignItems: "center",
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   inputBox: {
     width: 274,
