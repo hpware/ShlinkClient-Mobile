@@ -38,6 +38,7 @@ const s = StyleSheet.create({
     justifyContent: "center",
     flex:1,
     alignItems: "center",
+    backgroundColor: '#fff',
   },
   inputBox: {
     width: 274,
