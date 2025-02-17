@@ -84,13 +84,13 @@ export default function RootLayout() {
         }}
       />
       {/**https://stackoverflow.com/questions/76494104/how-can-we-hide-an-entire-folder-of-routes-in-expo-router */}
-      <Tabs.Screen
+      {/**<Tabs.Screen
         name="SettingsSubMenu"
         options={{
           href: null,
           headerShown: false,
         }}
-      />
+      />*/}
     </Tabs>
   );
 }
