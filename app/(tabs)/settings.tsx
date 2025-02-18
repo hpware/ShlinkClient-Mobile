@@ -17,13 +17,13 @@ const [loading, setloading] = useState<boolean>(false);
 
 // GetHosts
 useEffect(() => {
-getHosts().then((hosts) => {
-  if (!hosts || hosts === null) {
-    setisemptyarray(true);
-  } else {
-    setservers(hosts);
-  }
-});
+  getHosts().then((hosts) => {
+    if (!hosts || hosts === null) {
+      setisemptyarray(true);
+    } else {
+      setservers(hosts);
+    }
+  });
 }, []);
 /**
 useEffect(() => {
@@ -34,10 +34,10 @@ useEffect(() => {
  */
 // TESTING
 useEffect(() => {
-    if (isemptyarray) {
-      setservers([{ host: "https://yhw.tw" }]);
-    }
-  }, []);
+  if (isemptyarray) {
+    setservers([{ host: "https://yhw.tw" }]);
+  }
+}, []);
 
 // Remove https:// or http://
 const rmhttpands = (text: string) => {
@@ -58,12 +58,11 @@ const fetchNetwork = (host: string) => {
           setisonline(false);
           return;
         } else {
-            setisonline(true);
-            return {
-                version: data.version,
-                host: host,
-
-            }
+          setisonline(true);
+          return {
+            version: data.version,
+            host: host,
+          };
         }
       });
     } catch (e) {
@@ -111,4 +110,3 @@ const s = StyleSheet.create({
   },
   currentserver: {},
 });
-
