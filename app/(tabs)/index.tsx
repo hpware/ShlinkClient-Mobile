@@ -3,29 +3,9 @@ import { useState } from "react";
 import { storeData, getData } from "@/components/data";
 
 export default function Index() {
-  const [host, sethost] = useState<string>("");
-  if (host) {
-  }
   return (
     <View style={s.mainview}>
-      {!host ? (
         <Text>Please add a host to start using this app.</Text>
-      ) : (
-        <View>
-          <Text>Hi</Text>
-
-          <View style={s.inputBox}>
-            <TextInput
-              style={s.label}
-              placeholder="Host"
-              placeholderTextColor="black"
-              value={host}
-              onChangeText={sethost}
-              secureTextEntry={true}
-            ></TextInput>
-          </View>
-        </View>
-      )}
     </View>
   );
 }
