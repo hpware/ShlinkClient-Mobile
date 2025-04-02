@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Platform, StyleSheet, Pressable } from "react-native";
+import { Platform, StyleSheet, Pressable, View } from "react-native";
 
 export default function RootLayout() {
   return (
@@ -94,3 +94,12 @@ export default function RootLayout() {
     </Tabs>
   );
 }
+
+const s = StyleSheet.create({
+  top: {
+    color: "black",
+    position: "absolute",
+    width: "100%",
+    height:30,
+  }
+})

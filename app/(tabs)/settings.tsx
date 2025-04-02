@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { storeData, getData } from "@/components/data";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import checkStatus from "@/components/api/checkStatus";
-import tstyles from "@/components/tstyles";
-const t = tstyles();
 // Get Hosts from local database
 const getHosts = async () => await getData("hosts");
 
@@ -68,7 +66,7 @@ useEffect(() => {
   }, []);
   return (
     <View style={s.mainview}>
-      <Text>
+      <View style={s.icon}>
         {isonline ? (
           <Ionicons
             name={"checkmark-circle-outline"}
@@ -81,7 +79,8 @@ useEffect(() => {
             color={"#ff0000"}
             size={100}
           />
-        )}      </Text>
+        )}
+        </View>
       <Text style={s.currentserver}>
         Current Server: {servers?.[0]?.host}
       </Text>
@@ -97,6 +96,9 @@ useEffect(() => {
     </View>
   );
 }
+// Styles
+import tstyles from "@/components/tstyles";
+const t = tstyles();
 const s = StyleSheet.create({
   mainview: {
     flex: 1,
@@ -116,13 +118,19 @@ const s = StyleSheet.create({
     color: "black",
     fontFamily: "Inter",
     margin: 3,
-    height: 30,
+    height: 30
   },
   addnewhost: {
     position: "fixed",
     backgroundColor: "#00aaff",
     color: "white",
     width: "50%",
+  },
+  icon: {
+    position: "fixed",
+    top: 10,
+    left:0,
+    right:0,
   },
 });
 

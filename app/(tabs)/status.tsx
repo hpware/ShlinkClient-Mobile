@@ -27,6 +27,7 @@ export default function status() {
     const getdata = async (host: string) => {
       try {
         const res = await checkStatus(host);
+        console.log(res);
         if (res.error || res.version === "v0") {
           seterrorb(true);
           setchk(null);

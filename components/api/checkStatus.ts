@@ -20,7 +20,8 @@ export default async function checkStatus(host: string): Promise<returnres> {
       },
     });
     console.log(url);
-    const res = (await req.json()) as hcres;
+    const res = await req.json();
+    console.log(req);
     console.log(res);
     if ((res.status = "pass")) {
       return {
