@@ -7,6 +7,12 @@ export default function startPage() {
     // Values
     const [step, setstep] = useState<number | null>(null);
     // sql Commands
+    const createChecck = `
+    create table checks (
+        check varchar(255) not null,
+        primay key(check);
+    )
+    `
     const createDomainList = `
     create table domains (
         domain varchar(255) not null,
@@ -17,7 +23,15 @@ export default function startPage() {
     // Page
     return (
     <View>
-        
+        {
+            step == 1 ?
+            <View>
+            
+            </View> : 
+            <View>
+            
+            </View>
+        }
     </View>
     )
 }
