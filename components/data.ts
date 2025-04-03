@@ -19,6 +19,7 @@ export async function storeNumbers(key: string, value: number) {
 export async function getData(key: string) {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
+    console.log(jsonValue);
   } catch (e) {
     console.error(e);
     return null;
